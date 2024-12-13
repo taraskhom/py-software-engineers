@@ -1,7 +1,5 @@
 class SoftwareEngineer:
-    def __init__(
-            self, name: str,
-    ) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
         self.skills = []
 
@@ -12,9 +10,7 @@ class SoftwareEngineer:
 class FrontendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        super().learn_skill("JavaScript")
-        super().learn_skill("HTML")
-        super().learn_skill("CSS")
+        self.skills += ["JavaScript", "HTML", "CSS"]
 
     def create_awesome_web_page(self) -> str:
         print(f"{self.name} is creating a webpage...")
@@ -24,9 +20,7 @@ class FrontendDeveloper(SoftwareEngineer):
 class BackendDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        super().learn_skill("Python")
-        super().learn_skill("SQL")
-        super().learn_skill("Django")
+        self.skills += ["Python", "SQL", "Django"]
 
     def create_powerful_api(self) -> str:
         print(f"{self.name} is creating an API...")
@@ -36,8 +30,7 @@ class BackendDeveloper(SoftwareEngineer):
 class AndroidDeveloper(SoftwareEngineer):
     def __init__(self, name: str) -> None:
         super().__init__(name)
-        super().learn_skill("Java")
-        super().learn_skill("Android studio")
+        self.skills += ["Java", "Android studio"]
 
     def create_smooth_mobile_app(self) -> str:
         print(f"{self.name} is creating a mobile app...")
@@ -48,9 +41,6 @@ class FullStackDeveloper(
     FrontendDeveloper,
     BackendDeveloper
 ):
-    def __init__(self, name: str) -> None:
-        super().__init__(name)
-
     def create_web_application(self) -> None:
         print(f"{self.name} started creating a web application...")
         super().create_powerful_api()
